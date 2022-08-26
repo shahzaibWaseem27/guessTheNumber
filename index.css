@@ -19,10 +19,11 @@ h1 {
 
 #attemptedGuesses {
     display: flex;
-    width: 500px;
+    justify-content: center;
+    width: 30vw;
     height: 30px;
     border: 0.6px solid black;
-    margin:  30px 100px;
+    margin: 30px 100px;
 }
 
 #info {
