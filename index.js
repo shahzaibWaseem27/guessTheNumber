@@ -14,6 +14,19 @@ remainingGuessesSpan.innerHTML = remainingGuesses;
 let randomNumber = Math.floor(Math.random()*100) + 1;
 console.log(randomNumber);
 
+const restartFunction = () => {
+    submitButton.style.display = "inline";
+    hint.style.display = "inline";
+    hint.innerHTML = "";
+    remainingGuesses = MAX_GUESSES;
+    remainingGuessesSpan.innerHTML = remainingGuesses;
+    randomNumber = Math.floor(Math.random()*100) + 1;
+    console.log(randomNumber);
+    attemptedGuesses.innerHTML = "";
+    input.style.display = "block";
+    input.value = "";
+}
+
 submitButton.addEventListener("click", ()=>{
     if(remainingGuesses > 0){
         let newGuessSpan = document.createElement("span");
@@ -28,10 +41,11 @@ submitButton.addEventListener("click", ()=>{
         } else if(input.value < randomNumber){
             hint.innerHTML = "you guessed too low";
         } else {
-            hint.style.display = "none";
+            remainingGuesses = 0;
+            remainingGuessesSpan.innerHTML = remainingGuesses;
             input.style.display = "none";
             submitButton.style.display = "none";
-            prompt.innerHTML = "You guessed correctly!!";
+            hint.innerHTML = "You guessed correctly!!";
         }
     } else {
         hint.innerHTML = "you have run out of guesses";
@@ -41,15 +55,5 @@ submitButton.addEventListener("click", ()=>{
     
 })
 
-restartButton.addEventListener("click", ()=>{
-    submitButton.style.display = "inline";
-    hint.style.display = "inline";
-    hint.innerHTML = "";
-    remainingGuesses = MAX_GUESSES;
-    remainingGuessesSpan.innerHTML = remainingGuesses;
-    randomNumber = Math.floor(Math.random()*100) + 1;
-    console.log(randomNumber);
-    attemptedGuesses.innerHTML = "";
-    input.style.display = "block";
-    input.value = "";
-})
+
+restartButton.addEventListener("click", restartFunction);
