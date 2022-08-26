@@ -45,7 +45,7 @@ restartButton.addEventListener("click", ()=>{
     submitButton.style.display = "inline";
     hint.style.display = "inline";
     hint.innerHTML = "";
-    remainingGuesses = 10;
+    remainingGuesses = MAX_GUESSES;
     remainingGuessesSpan.innerHTML = remainingGuesses;
     randomNumber = Math.floor(Math.random()*100) + 1;
     console.log(randomNumber);
