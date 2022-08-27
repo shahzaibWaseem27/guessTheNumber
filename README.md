@@ -1,2 +1,2 @@
 # guessTheNumber
-A simple web game app in which user guesses numbers between 1 and 100
+A simple web game app in which user guesses a random number between 1 and 100
